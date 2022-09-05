@@ -11,8 +11,10 @@ import { LoginComponent } from './componentes/login/login/login.component';
 import { Pagina1Component } from './componentes/pagina1/pagina1/pagina1.component';
 import { Pagina2Component } from './componentes/pagina2/pagina2/pagina2.component';
 import { AppService } from './servicios/app.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './servicios/interceptor.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { InterceptorService } from './servicios/interceptor.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [AppService,
     { provide:HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true }],
