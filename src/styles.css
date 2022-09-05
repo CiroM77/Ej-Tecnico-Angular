@@ -1,1 +1,292 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin:0;
+    font-family: 'Inter';
+    font-style: normal;
+
+
+}
+
+
+/* NAVBAR */
+
+#navbar {
+    background-color: #ffffff;
+}
+
+#cont-tog button{
+    border: none;
+}
+#name-app {
+    color: #416FE6;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+#a-inicio{
+    color: black;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+#a-inicio:hover {
+    opacity: 1;
+}
+
+/* BANNER */
+
+#banner {
+    background-color: #3459B8;
+    border: none;
+    border-radius: 0;
+}
+
+#banner img {
+    padding: 25px;
+}
+
+#banner-text{
+    color: #ffffff;
+    top: 35%;
+
+}
+
+#banner-text h3{
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    width: 60%;
+
+}
+
+
+#banner-text p{
+    width: 70%;
+    font-size: 15px;
+    line-height: 1.2;
+    margin-top: 25px;
+}
+
+
+/*  FORM */
+
+
+#sec-input{
+    margin: 25px;
+}
+
+
+#sec-input input{
+    opacity: 0.5;
+    background-color: #fcf3f3;
+}
+
+#sec-input input:hover {
+    opacity: 1;
+}
+
+
+#sec-input select {
+    opacity: 0.5;
+    
+}
+
+#sec-input select:hover {
+    opacity: 1;
+}
+
+.cont-btn {
+    display: flex;
+    justify-content: center;
+}
+
+#btn-comenzar{
+    background-color: #416FE6;
+    color: #ffffff;
+    padding: 13px;
+    font-size: 17px;
+    margin: 30px;
+}
+
+#btn-comenzar:hover{
+    opacity: 0.8;
+}
+
+/* RESPONSIVE */
+
+@media screen and (min-width: 600px) {
+    
+    #banner-text {
+        margin-left: 25px;
+    }
+
+    #banner-text h3 {
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 1.2;
+        width: 60%;
+    
+    }
+    
+    
+    #banner-text p{
+        width: 70%;
+        font-size: 20px;
+        line-height: 1.2;
+        margin-top: 35px;
+    }
+
+    #btn-comenzar{
+        padding: 15px;
+        font-size: 22px;
+        margin: 40px;
+    }
+
+}
+
+
+@media screen and (min-width: 840px) {
+
+
+    #banner img {
+        padding: 20px 70px 20px 70px;
+    }
+    
+    #banner-text{
+        top: 35%;
+        margin-left: 35px;
+    
+    }
+    
+    #banner-text h3{
+        font-weight: 700;
+        font-size: 70px;
+        line-height: 1.2;
+        width: 80%;
+    
+    }
+    
+    
+    #banner-text p{
+        width: 60%;
+        font-size: 25px;
+        line-height: 1.2;
+        margin-top: 40px;
+    }
+    
+
+
+
+}
+
+@media screen and (min-width: 1000px) {
+
+    #banner-text h3{
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 1.3;
+        width: 80%;
+    
+    }
+    
+    
+    #banner-text p{
+        width: 50%;
+        font-size: 35px;
+        line-height: 1.3;
+        margin-top: 60px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+
+    #banner-text h3{
+        
+        font-size: 40px;
+        width: 70%;
+    
+    }
+    
+    
+    #banner-text p{
+        width: 70%;
+        font-size: 15px;
+        
+    }
+
+}
+
+@media screen and (max-width: 457px){
+
+    #banner-text h3{
+        
+        font-size: 30px;
+        width: 70%;
+    
+    }
+    
+    
+    #banner-text p{
+        width: 70%;
+        font-size: 12px;
+        
+    }
+
+}
+
+
+@media screen and (max-width: 354px){
+
+    #banner-text h3{
+        
+        font-size: 25px;
+        width: 70%;
+    
+    }
+    
+    
+    #banner-text p{
+        width: 70%;
+        font-size: 11px;
+        
+    }
+
+}
+
+@media screen and (max-width: 318px){
+
+    #banner-text h3{
+        
+        font-size: 20px;
+        width: 70%;
+    
+    }
+    
+    
+    #banner-text p{
+        width: 70%;
+        font-size: 10px;
+        
+    }
+
+}
+
+
+@media screen and (max-width: 278px){
+
+    #banner-text h3{
+        
+        font-size: 15px;
+        width: 70%;
+    
+    }
+    
+    
+    #banner-text p{
+        width: 70%;
+        font-size: 8px;
+        
+    }
+
+}
