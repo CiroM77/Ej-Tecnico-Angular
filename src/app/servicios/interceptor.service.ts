@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AutenticacionService } from './autenticacion.service';
+
+import { Usuario } from '../Clases/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +15,15 @@ export class InterceptorService implements HttpInterceptor{
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
      
     var currentUser = this.auntenticacionService.usuarioAutenticado;
-    if (currentUser && currentUser.accessToken){
+    if (currentUser && currentUser.id_token){
       req=req.clone ({
-                setHeaders:{
-                  Authorization:`Bearer + ${currentUser.accessToken}`
-                }
-      })
+                 setHeaders:{
+                   Authorization:  `Bearer ${currentUser.id_token}`
+              }        
+      }
+       )
     }
-    console.log("El interceptor esta corriendo" + JSON.stringify(currentUser));
-    return next.handle(req)
+    console.log("El interceptor esta corriendo" + JSON.stringify(currentUser.id_token)); 
+     return next.handle(req);
   }
 }

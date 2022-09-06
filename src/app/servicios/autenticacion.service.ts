@@ -8,6 +8,7 @@ import { Usuario } from '../Clases/usuario';
   providedIn: 'root'
 })
 export class AutenticacionService {
+
   urlAuth="https://tureservapp.com.ar:8081/api/authenticate";
   currentUserSubject:BehaviorSubject<any>;
 
@@ -30,4 +31,5 @@ export class AutenticacionService {
      return this.currentUserSubject.value;
    }
 
+    
 }

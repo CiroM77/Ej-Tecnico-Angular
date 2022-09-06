@@ -41,7 +41,7 @@ export class Form1Component implements OnInit {
     this.datosServicios.obtenerCategorias().subscribe(Categoria =>{
       console.log("Categorias" + JSON.stringify(Categoria));
       console.log(Categoria);
-      this.miCategoria=Categoria[0];
+      this.miCategoria=Categoria;
 
     }
 
