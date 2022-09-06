@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Categoria } from '../Clases/categoria';
 import { Usuario } from '../Clases/usuario';
 import { AutenticacionService } from './autenticacion.service';
+import { User } from '../clases/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AppService {
   constructor(private http:HttpClient, private auntenticacionService:AutenticacionService) { }
 
   url:string = "https://tureservapp.com.ar:8081/api/categorias";
+  urlCreate:string = " https://tureservapp.com.ar:8081/api/newuser";
                 
 
   obtenerCategorias():Observable<Categoria>{
@@ -24,4 +26,8 @@ export class AppService {
       console.log("Probando si se envia el Token" + JSON.stringify(currentUser.id_token)); 
     return this.http.get<Categoria>(this.url, httpOptions);
 }
+
+  public crearUser(user:User): Observable<any>{
+    return this.http.post<any>(this.urlCreate, user);
+  }
 }

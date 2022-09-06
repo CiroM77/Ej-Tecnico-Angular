@@ -1,7 +1,7 @@
-<form [formGroup]="form" (ngSubmit)="OnEnviar($event)">
+<form [formGroup]="form" *appUnless="comenzar">
     <div class="mb-3" id="sec-input">
       <label for="formGroupExampleInput" class="form-label">Nombre y Apellido*</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Escribe tu Nombre" formControlName="name" ngModel maxlength="30">
+      <input type="text"[(ngModel)]="firstName" name="firstName" class="form-control" id="formGroupExampleInput" placeholder="Escribe tu Nombre" formControlName="firstName" ngModel maxlength="30">
         <div *ngIf="nombre?.errors && nombre?.touched">
           <p *ngIf="nombre?. hasError('required')" class="text-danger">
                     El nombre es requerido.
@@ -21,19 +21,17 @@
       <label for="formGroupExampleInput2" class="form-label">Tipo de negocio</label>
       <select class="form-select" aria-label="Default select example" formControlName="tipo">
         <option selected>Negocio</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option value="1"  *ngFor="let categ of miCategoria">{{categ.nombre}}</option>
       </select>
     </div>
     <div class="mb-3" id="sec-input">
       <label for="formGroupExampleInput" class="form-label">Email*</label>
-      <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu email" ngModel maxlength="30"> 
-              <div *ngIf="email?.errors && email?.touched">
-                <p *ngIf="email?. hasError('required')" class="text-danger">
+      <input type="email" [(ngModel)]="email" formControlName="emailF" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu email" ngModel maxlength="30"> 
+              <div *ngIf="emailF?.errors && emailF?.touched">
+                <p *ngIf="emailF?. hasError('required')" class="text-danger">
                     El email es requerido.
                 </p>
-                <p *ngIf="email?. hasError ('email')" class="text-danger">
+                <p *ngIf="emailF?. hasError ('email')" class="text-danger">
                   El formato del email debe ser välido.
                  </p>
               </div>
@@ -60,7 +58,61 @@
           </div>
     </div>
     <div class="cont-btn">
-    <button type="submit" class="btn" id="btn-comenzar" routerLink="/registro2">Comenzar</button>
+    <button type="button" class="btn" id="btn-comenzar" (click)="comenzar = !comenzar" >Comenzar</button>
     </div>
   </form>
+
+  <form [formGroup]="formCont" (ngSubmit)="onCreate()" *appUnless="!comenzar">
+    <div class="mb-3" id="sec-input">
+      <label for="formGroupExampleInput" class="form-label">Usuario*</label>
+      <input type="text" name="usu" [(ngModel)]="usu" formControlName="usuario" class="form-control" id="formGroupExampleInput" placeholder="Escribe tu usuario" ngModel maxlength="30">
+      <div *ngIf="usuario?.errors && usuario?.touched">
+        <p *ngIf="usuario?. hasError('required')" class="text-danger">
+                  El usuario es requerido.
+        </p> 
+      </div>
+    </div>
+    <div class="mb-3" id="sec-input">
+      <label for="formGroupExampleInput2" class="form-label">Nueva contraseña*</label>
+      <input type="password" [(ngModel)]="pass" class="form-control" formControlName="contraseña" id="formGroupExampleInput2" placeholder="Contraseña" ngModel maxlength="30">
+      <div *ngIf="contrasenia?.errors && contrasenia?.touched">
+        <p *ngIf="contrasenia?. hasError('required')" class="text-danger">
+                  La contraseña es requerida.
+        </p> 
+      </div>
+    </div>
+    <div class="mb-3" id="sec-input">
+      <label for="formGroupExampleInput2" class="form-label">Condicion frente al IVA*</label>
+      <select class="form-select" formControlName="iva" aria-label="Default select example">
+        <option selected>Negocio</option>
+        <option value="1">Responsable Inscripto</option>
+        <option value="2">Consumidor Final</option>
+        <option value="3">Monotributista</option>
+        <option value="4">No se</option>
+      </select>
+    </div>
+    <div class="mb-3" id="sec-input">
+      <label for="formGroupExampleInput2" class="form-label">Plan para el período de prueba*</label>
+      <select class="form-select" formControlName="plan" aria-label="Default select example">
+        <option selected>Tipo de plan</option>
+        <option value="1">Plan Basico $1.200/mes</option>
+        <option value="2">Plan Premium $1920/mes</option>
+        <option value="3">Plan Pro $3480/mes</option>
+        <option value="4"> Plan Enterprise desde $4140/mes</option>
+      </select>
+    </div>
+    <div class="mb-3" id="sec-input">
+      <label for="formGroupExampleInput" class="form-label">Código de referido</label>
+      <input type="text" class="form-control" formControlName="referido" id="formGroupExampleInput3" placeholder="Escribe el código" ngModel maxlength="30">
+      <div *ngIf="referido?.errors && referido?.touched">
+        <p *ngIf="referido?. hasError('required')" class="text-danger">
+                  El código es requerido.
+        </p> 
+      </div>
+    </div>
+    <div class="cont-btn">
+    <button type="submit" class="btn" id="btn-comenzar">Continuar</button>
+    </div>
+  </form>
+  
   

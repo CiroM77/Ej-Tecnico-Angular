@@ -14,6 +14,7 @@ import { AppService } from './servicios/app.service';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './servicios/interceptor.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UnlessDirective } from './directiva/unless.directive';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     Form2Component,
     LoginComponent,
     Pagina1Component,
-    Pagina2Component
+    Pagina2Component,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
