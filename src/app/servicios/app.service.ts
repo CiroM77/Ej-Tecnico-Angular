@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Categoria } from '../Clases/categoria';
 import { Usuario } from '../Clases/usuario';
@@ -17,7 +17,7 @@ export class AppService {
   url:string = "https://tureservapp.com.ar:8081/api/categorias";
   urlCreate:string = " https://tureservapp.com.ar:8081/api/newuser";
   urlVUser:string = "https://tureservapp.com.ar:8081/api/newuserexist/$nombreUsuario";
-  urlVemail:string = "https://tureservapp.com.ar:8081/api/$newuserexisMailt";
+  urlVemail:string = "https://tureservapp.com.ar:8081/api/newuserexisMailt/$nombreUsuario";
               
 
   obtenerCategorias():Observable<Categoria>{
@@ -35,6 +35,8 @@ export class AppService {
   public getEmailExist(email:string): Observable<User>{
     return this.http.get<User>(this.urlVemail);
   } 
+
+
 
 
 }

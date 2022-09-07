@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
+import {FormControl, FormGroup, Validators, FormBuilder, AbstractControl, ValidatorFn} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Categoria } from 'src/app/Clases/categoria';
 import { User } from 'src/app/clases/user';
@@ -114,18 +114,28 @@ export class Form1Component implements OnInit {
         alert("Falló");
         this.ruta.navigate(['']);
       }
-    )
+    )};
 
-      // getUserExist(){
-      //   console.log("el boleano esta corriendo");
-      //   this.datosServicios.getUserExist().subscribe(
-      //     data => {
-      //       console.log("el boleano esta corriendo");
-      //       this.
-      //     }
-      //   )
-      // }
-  }
+      getUserExist(User){
+        console.log("el boleano esta corriendo");
+        this.datosServicios.getUserExist(User).subscribe(
+          data => {
+            console.log(data);
+            
+          }
+        )
+      }
+
+      getEmailExist(User){
+        console.log("el boleano esta corriendo");
+        this.datosServicios.getEmailExist(User).subscribe(
+          data => {
+            console.log(data);
+            
+          }
+        )
+      }
+
 
    }
 
