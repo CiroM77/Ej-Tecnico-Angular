@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { AppService } from './app.service';
+import { SpinnerService } from './spinner.service';
 
 
 @Injectable({
@@ -10,11 +11,12 @@ import { AppService } from './app.service';
 })
 export class InterceptorSpinnerService implements HttpInterceptor {
 
-  constructor(private service:AppService) { }
+  constructor(private service:SpinnerService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       return next.handle(req).pipe(
         tap(event => {
+          this.service.loader.next(true);
           if(event.type == HttpEventType.Response){
             if (event.status == 200) {
                this.service.loader.next(false);

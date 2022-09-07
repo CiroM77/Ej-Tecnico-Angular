@@ -12,7 +12,7 @@ export class SpinnerComponent implements OnInit {
   
   loader ;
 
-  constructor(private spinnerService: SpinnerService, private service:AppService) { 
+  constructor(private service:SpinnerService) { 
     this.service.loader.subscribe(res => {
       this.loader = res;
     })

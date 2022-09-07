@@ -14,8 +14,6 @@ export class AppService {
   constructor(private http:HttpClient, private auntenticacionService:AutenticacionService) { }
 
 
-  loader = new BehaviorSubject<Boolean>(false);
-
   url:string = "https://tureservapp.com.ar:8081/api/categorias";
   urlCreate:string = " https://tureservapp.com.ar:8081/api/newuser";
   urlVUser:string = "https://tureservapp.com.ar:8081/api/newuserexist/$nombreUsuario";
