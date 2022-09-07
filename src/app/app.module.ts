@@ -15,6 +15,8 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { InterceptorService } from './servicios/interceptor.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UnlessDirective } from './directiva/unless.directive';
+import { SpinnerComponent } from './componentes/spinner/spinner.component';
+import { InterceptorSpinnerService } from './servicios/interceptor-spinner.service';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { UnlessDirective } from './directiva/unless.directive';
     LoginComponent,
     Pagina1Component,
     Pagina2Component,
-    UnlessDirective
+    UnlessDirective,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { UnlessDirective } from './directiva/unless.directive';
     HttpClientModule
   ],
   providers: [AppService,
-    { provide:HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true }],
+    { provide:HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true },
+    { provide:HTTP_INTERCEPTORS, useClass:InterceptorSpinnerService, multi:true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

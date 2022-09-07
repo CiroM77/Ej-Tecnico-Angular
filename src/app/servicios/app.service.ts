@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Categoria } from '../Clases/categoria';
 import { Usuario } from '../Clases/usuario';
 import { AutenticacionService } from './autenticacion.service';
@@ -13,21 +13,30 @@ export class AppService {
 
   constructor(private http:HttpClient, private auntenticacionService:AutenticacionService) { }
 
+
+  loader = new BehaviorSubject<Boolean>(false);
+
   url:string = "https://tureservapp.com.ar:8081/api/categorias";
   urlCreate:string = " https://tureservapp.com.ar:8081/api/newuser";
-                
+  urlVUser:string = "https://tureservapp.com.ar:8081/api/newuserexist/$nombreUsuario";
+  urlVemail:string = "https://tureservapp.com.ar:8081/api/$newuserexisMailt";
+              
 
   obtenerCategorias():Observable<Categoria>{
-    var currentUser = this.auntenticacionService.usuarioAutenticado;
-    const httpOptions = {
-      headers: new HttpHeaders({
-      Authorization: `Bearer + ${currentUser.id_token}`
-      })};
-      console.log("Probando si se envia el Token" + JSON.stringify(currentUser.id_token)); 
-    return this.http.get<Categoria>(this.url, httpOptions);
+    return this.http.get<Categoria>(this.url);
 }
 
   public crearUser(user:User): Observable<any>{
     return this.http.post<any>(this.urlCreate, user);
   }
+
+  public getUserExist(usu:string): Observable<User>{
+    return this.http.get<User>(this.urlVUser);
+  } 
+
+  public getEmailExist(email:string): Observable<User>{
+    return this.http.get<User>(this.urlVemail);
+  } 
+
+
 }

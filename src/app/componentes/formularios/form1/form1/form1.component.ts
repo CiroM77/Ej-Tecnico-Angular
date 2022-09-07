@@ -69,10 +69,7 @@ export class Form1Component implements OnInit {
       console.log("Categorias" + JSON.stringify(Categoria));
       console.log(Categoria);
       this.miCategoria=Categoria;
-
-    }
-
-    )
+    } )
   }
 
   get nombre() {
@@ -118,6 +115,16 @@ export class Form1Component implements OnInit {
         this.ruta.navigate(['']);
       }
     )
+
+      // getUserExist(){
+      //   console.log("el boleano esta corriendo");
+      //   this.datosServicios.getUserExist().subscribe(
+      //     data => {
+      //       console.log("el boleano esta corriendo");
+      //       this.
+      //     }
+      //   )
+      // }
   }
 
    }
